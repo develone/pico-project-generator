@@ -1,0 +1,46 @@
+git clone https://github.com/develone/pico-project-generator.git
+
+cd pico-project-generator
+
+./pico_project.py sleep_ms
+
+cd sleep_ms
+
+mkdir build
+
+cd build
+
+devel@pi4-60:~/pico-project-generator/sleep_ms/build $ cmake -DPICO_BOARD=pico_w ../
+
+make
+
+devel@pi4-60:~/pico-project-generator/sleep_ms/build $ ls 
+CMakeCache.txt              cmake_install.cmake  pico-sdk      sleep_ms.elf
+CMakeDoxyfile.in            elf2uf2              pioasm        sleep_ms.elf.map
+CMakeDoxygenDefaults.cmake  generated            sleep_ms.bin  sleep_ms.hex
+CMakeFiles                  Makefile             sleep_ms.dis  sleep_ms.uf2
+cd ../../
+
+./pico_project.py sleep_baseline
+
+devel@pi4-60:~/pico-project-generator $ ./pico_project.py sleep_baseline
+
+devel@pi4-60:~/pico-project-generator/sleep_baseline/build $ cmake -DPICO_BOARD=pico_w ../
+
+mkdir build
+
+cd build
+
+make
+
+
+devel@pi4-60:~/pico-project-generator/sleep_baseline/build $ ls
+CMakeCache.txt              generated           sleep_baseline.elf
+CMakeDoxyfile.in            Makefile            sleep_baseline.elf.map
+CMakeDoxygenDefaults.cmake  pico-sdk            sleep_baseline.hex
+CMakeFiles                  pioasm              sleep_baseline.uf2
+cmake_install.cmake         sleep_baseline.bin
+elf2uf2                     sleep_baseline.dis
+
+
+
